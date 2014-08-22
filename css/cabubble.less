@@ -1,0 +1,12 @@
+body { font-family: Arial;}
+
+#tooltip {
+  position: absolute;color: #DDD;padding: 5px;font-size: 10pt;
+  border-radius: 5px;-moz-border-radius: 5px;opacity: 0.85;
+  text-align:justify;z-index:4;
+  background-color: rgba(0,0,0,0.8);
+  span{
+    &:first-child { font-weight: bold;}
+    &.val {  text-shadow: rgba(0, 0, 0, 0.496094) 0px 1px 3px 0px;}
+  }
+}
