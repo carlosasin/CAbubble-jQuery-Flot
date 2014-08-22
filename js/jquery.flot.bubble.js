@@ -1,57 +1,13 @@
 /*
 
-Flot plugin for showing bubbles, thin lines, when the mouse hovers
-over the plot.
+ jQuery Flot plugin for showing data information in bubbles and crosshair,
+ thin lines, when the mouse hovers over the plot.
 
   bubble: {
-    mode: null or "x" or "y" or "xy"
     color: color
     lineWidth: number
   }
 
-Set the mode to one of "x", "y" or "xy". The "x" mode enables a
-vertical bubble that lets you trace the values on the x axis, "y"
-enables a horizontal bubble and "xy" enables them both. "color" is
-the color of the bubble (default is "rgba(170, 0, 0, 0.80)"),
-"lineWidth" is the width of the drawn lines (default is 1).
-
-The plugin also adds four public methods:
-
-  - setbubble(pos)
-
-    Set the position of the bubble. Note that this is cleared if
-    the user moves the mouse. "pos" is in coordinates of the plot and
-    should be on the form { x: xpos, y: ypos } (you can use x2/x3/...
-    if you're using multiple axes), which is coincidentally the same
-    format as what you get from a "plothover" event. If "pos" is null,
-    the bubble is cleared.
-
-  - clearbubble()
-
-    Clear the bubble.
-
-  - lockbubble(pos)
-
-    Cause the bubble to lock to the current location, no longer
-    updating if the user moves the mouse. Optionally supply a position
-    (passed on to setbubble()) to move it to.
-
-    Example usage:
-      var myFlot = $.plot( $("#graph"), ..., { bubble: { mode: "x" } } };
-      $("#graph").bind("plothover", function (evt, position, item) {
-        if (item) {
-          // Lock the bubble to the data point being hovered
-          myFlot.lockbubble({ x: item.datapoint[0], y: item.datapoint[1] });
-        }
-        else {
-          // Return normal bubble operation
-          myFlot.unlockbubble();
-        }
-      });
-
-  - unlockbubble()
-
-    Free the bubble to move again after locking it.
 */
 
 (function ($) {
